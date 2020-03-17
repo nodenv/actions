@@ -18,7 +18,7 @@
     "lint": "eslint index.js",
     "posttest": "npm run lint",
     "test": "jest",
-    "package": "ncc build index.js -o dist"
+    "prepare": "ncc build index.js -o dist"
   },
   "dependencies": {
     "@actions/core": "^1.1.1"
