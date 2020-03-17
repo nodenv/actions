@@ -3,18 +3,16 @@ const process = require("process")
 const path = require("path")
 const existsSync = require("fs").existsSync
 
-const toolDir = path.join(__dirname, "runner", "tools");
-const tempDir = path.join(__dirname, "runner", "temp");
 
-process.env["RUNNER_TOOL_CACHE"] = toolDir;
-process.env["RUNNER_TEMP"] = tempDir;
+process.env["RUNNER_TOOL_CACHE"] = path.join(__dirname, "runner", "tools");
+process.env["RUNNER_TEMP"] = path.join(__dirname, "runner", "temp");
 
-const ensureBatsAvailable = require("../../src/installer")
+const installNodenv = require("../../installer").installNodenv
 
 describe("installer tests", () => {
   beforeAll(async () => {
-    await io.rmRF(toolDir);
-    await io.rmRF(tempDir);
+    await io.rmRF(process.env["RUNNER_TOOL_CACHE"]);
+    await io.rmRF(process.env["RUNNER_TEMP"]);
   }, 100000);
 
   it("Acquires version of BATS if no matching version is installed", async () => {
