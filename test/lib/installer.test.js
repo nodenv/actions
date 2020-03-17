@@ -3,9 +3,8 @@ const process = require("process")
 const path = require("path")
 const existsSync = require("fs").existsSync
 
-
-process.env["RUNNER_TOOL_CACHE"] = path.join(__dirname, "runner", "tools");
-process.env["RUNNER_TEMP"] = path.join(__dirname, "runner", "temp");
+process.env["RUNNER_TOOL_CACHE"] = path.join(__dirname, "../runner/tools");
+process.env["RUNNER_TEMP"] = path.join(__dirname, "../runner/temp");
 
 const installNodenv = require("../../installer").installNodenv
 
@@ -15,20 +14,14 @@ describe("installer tests", () => {
     await io.rmRF(process.env["RUNNER_TEMP"]);
   }, 100000);
 
-  it("Acquires version of BATS if no matching version is installed", async () => {
-    let batsDir = await ensureBatsAvailable("1.0.0");
+  it("Acquires requested version of nodenv", async () => {
+    let nodenvDir = await installNodenv("1.3.1");
 
-    expect(existsSync(`${batsDir}.complete`)).toBe(true);
-    expect(existsSync(path.join(batsDir, "bin", "bats"))).toBe(true);
+    expect(existsSync(`${nodenvDir}.complete`)).toBe(true);
+    expect(existsSync(path.join(nodenvDir, "bin/nodenv"))).toBe(true);
   }, 100000);
 
-  it("Throws if no matching version of BATS can be found", async () => {
-    let thrown = false;
-    try {
-      await ensureBatsAvailable("0.0.0");
-    } catch {
-      thrown = true;
-    }
-    expect(thrown).toBe(true);
+  it("Throws on unreleased version of nodenv", async () => {
+    return expect(installNodenv("0.0.0")).rejects.toThrow("404")
   }, 100000);
 });
