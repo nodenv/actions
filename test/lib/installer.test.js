@@ -1,14 +1,15 @@
-import * as io from "@actions/io";
-import * as process from "process";
-import * as path from "path";
-import { existsSync } from "fs";
+const io = require("@actions/io")
+const process = require("process")
+const path = require("path")
+const existsSync = require("fs").existsSync
 
 const toolDir = path.join(__dirname, "runner", "tools");
 const tempDir = path.join(__dirname, "runner", "temp");
 
 process.env["RUNNER_TOOL_CACHE"] = toolDir;
 process.env["RUNNER_TEMP"] = tempDir;
-import { ensureBatsAvailable } from "../src/installer";
+
+const ensureBatsAvailable = require("../../src/installer")
 
 describe("installer tests", () => {
   beforeAll(async () => {
