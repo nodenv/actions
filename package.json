@@ -17,7 +17,7 @@
   "scripts": {
     "lint": "eslint index.js",
     "posttest": "npm run lint",
-    "test": "jest",
+    "test": "jest test/lib",
     "prepare": "ncc build index.js -o dist"
   },
   "dependencies": {
