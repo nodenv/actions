@@ -1,3 +1,5 @@
+/* eslint-env jest */
+
 const io = require('@actions/io')
 const process = require('process')
 const path = require('path')
@@ -6,7 +8,7 @@ const existsSync = require('fs').existsSync
 process.env.RUNNER_TOOL_CACHE = path.join(__dirname, '../runner/tools')
 process.env.RUNNER_TEMP = path.join(__dirname, '../runner/temp')
 
-const installNodenv = require('../../installer').installNodenv
+const installNodenv = require('../../src/installer').installNodenv
 
 describe('installer tests', () => {
   beforeAll(async () => {
