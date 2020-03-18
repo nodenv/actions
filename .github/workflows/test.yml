@@ -5,18 +5,18 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - run: npm ci
-    - run: npm test
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm test
 
   demo:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - run: npm ci
-    - id: nodenv
-      uses: ./
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '${{ steps.nodenv.outputs.node-version }}'
-    - run: node -v
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - id: nodenv
+        uses: ./
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '${{ steps.nodenv.outputs.node-version }}'
+      - run: node -v
