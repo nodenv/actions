@@ -16,4 +16,4 @@ outputs:
 
 runs:
   using: 'node12'
-  main: 'dist/index.js'
+  main: 'node-version/dist/index.js'

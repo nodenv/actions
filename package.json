@@ -14,11 +14,12 @@
     "url": "https://github.com/nodenv/actions/issues"
   },
   "scripts": {
-    "lint": "prettier-standard && standard --fix",
+    "lint": "standard --fix",
     "posttest": "npm run lint",
     "test": "jest test/lib",
     "build:setup-nodenv": "cd setup-nodenv && ncc build",
-    "prepare": "npm run build:setup-nodenv && ncc build src/index.js",
+    "build:node-version": "cd node-version && ncc build",
+    "prepare": "npm run build:setup-nodenv && npm run build:node-version",
     "preversion": "npm run prepare",
     "version": "git add -- */dist",
     "postversion": "git push --follow-tags"

@@ -1,0 +1,23 @@
+name: Examples
+on: push
+
+jobs:
+  setup-nodenv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - uses: ./setup-nodenv
+      - run: nodenv --version
+
+  node-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - id: nodenv
+        uses: ./node-version
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '${{ steps.nodenv.outputs.node-version }}'
+      - run: node -v
