@@ -17,7 +17,10 @@
     "lint": "prettier-standard && standard --fix",
     "posttest": "npm run lint",
     "test": "jest test/lib",
-    "prepare": "ncc build src/index.js -o dist"
+    "prepare": "ncc build src/index.js -o dist",
+    "preversion": "npm run prepare",
+    "version": "git add -- dist",
+    "postversion": "git push --follow-tags"
   },
   "dependencies": {
     "@actions/core": "^1.2.3",
