@@ -1,7 +1,7 @@
 const exec = require('util').promisify(require('child_process').exec)
 const core = require('@actions/core')
 
-const { installNodenv } = require('./installer')
+const { installNodenv } = require('../src/installer')
 
 async function run () {
   return Promise.resolve()
