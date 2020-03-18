@@ -1,17 +1,17 @@
 {
-  "name": "@nodenv/actions-node",
+  "name": "@nodenv/actions",
   "version": "1.0.0",
   "private": true,
   "description": "GitHub Action to select node version with nodenv",
-  "homepage": "https://github.com/nodenv/actions-node",
+  "homepage": "https://github.com/nodenv/actions",
   "license": "MIT",
   "author": "Jason Karns <jason.karns@gmail.com> (http://jasonkarns.com)",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nodenv/actions-node.git"
+    "url": "git+https://github.com/nodenv/actions.git"
   },
   "bugs": {
-    "url": "https://github.com/nodenv/actions-node/issues"
+    "url": "https://github.com/nodenv/actions/issues"
   },
   "scripts": {
     "lint": "prettier-standard && standard --fix",

@@ -7,7 +7,7 @@ Determines node version via `nodenv local`
 ```yml
 steps:
   - uses: actions/checkout@master
-  - uses: nodenv/actions-node@v1
+  - uses: nodenv/actions@v1
     id: nodenv
   - uses: actions/setup-node@v1
     with:
