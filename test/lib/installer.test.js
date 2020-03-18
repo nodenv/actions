@@ -8,7 +8,7 @@ const existsSync = require('fs').existsSync
 process.env.RUNNER_TOOL_CACHE = path.join(__dirname, '../runner/tools')
 process.env.RUNNER_TEMP = path.join(__dirname, '../runner/temp')
 
-const installNodenv = require('../../src/installer').installNodenv
+const installNodenv = require('../../setup-nodenv/installer').installNodenv
 
 describe('installer tests', () => {
   beforeAll(async () => {

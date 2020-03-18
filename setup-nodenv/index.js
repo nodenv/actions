@@ -1,10 +1,12 @@
 const core = require('@actions/core')
-const { installNodenv } = require('../src/installer')
+const { installNodenv } = require('.installer')
+const { fail } = require('../src/utils')
 
-async function run () {
-  return Promise.resolve()
-    .then(() => installNodenv(core.getInput('nodenv-version')))
-    .catch(error => core.setFailed(error.message))
+function run () {
+  return Promise.resolve().then(() =>
+    installNodenv(core.getInput('nodenv-version'))
+  )
 }
 
-run()
+module.exports = run()
+module.exports.catch(fail)
