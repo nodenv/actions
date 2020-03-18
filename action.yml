@@ -1,13 +1,14 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'nodenv'
+description: 'Configure node version using nodenv.'
+
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
-    required: true
-    default: '1000'
+  nodenv-version:
+    default: '1.3.1'
+
 outputs:
-  time: # output will be available to future steps 
-    description: 'The message to output'
+  node-version:
+    description: 'The version of node as determined by nodenv.'
+
 runs:
   using: 'node12'
-  main: 'dist/index.js'
+  main: 'index.js'
