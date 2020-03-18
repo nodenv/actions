@@ -1,25 +1,22 @@
-name: "units-test"
-on:
-  pull_request:
-  push:
-    branches:
-      - master
-      - 'releases/*'
+name: Test
+on: push
 
 jobs:
-  # unit tests
-  units:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - run: npm ci
-    - run: npm test
-
-  # test action works running from the graph  
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: ./
+    - uses: actions/checkout@v2
+    - run: npm ci
+    - run: npm test
+
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: npm ci
+    - id: nodenv
+      uses: ./
+    - uses: actions/setup-node@v1
       with:
-        milliseconds: 1000
+        node-version: '${{ steps.nodenv.outputs.node-version }}'
+    - run: node -v
