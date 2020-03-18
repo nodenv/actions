@@ -14,7 +14,7 @@
     "url": "https://github.com/nodenv/actions/issues"
   },
   "scripts": {
-    "lint": "prettier-standard && standard --fix",
+    "lint": "standard --fix",
     "posttest": "npm run lint",
     "test": "jest test/lib",
     "build:setup-nodenv": "cd setup-nodenv && ncc build",
