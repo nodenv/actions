@@ -20,3 +20,12 @@ jobs:
         with:
           node-version: '${{ steps.nodenv.outputs.node-version }}'
       - run: node -v
+
+  setup-nodenv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - id: nodenv
+        uses: ./setup-nodenv
+      - run: nodenv --version

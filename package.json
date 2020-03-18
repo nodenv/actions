@@ -18,7 +18,7 @@
     "posttest": "npm run lint",
     "test": "jest test/lib",
     "build:setup-nodenv": "cd setup-nodenv && ncc build",
-    "prepare": "ncc build src/index.js -o dist",
+    "prepare": "ncc build src/index.js",
     "preversion": "npm run prepare",
     "version": "git add -- dist",
     "postversion": "git push --follow-tags"
