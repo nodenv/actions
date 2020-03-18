@@ -9,23 +9,22 @@ jobs:
       - run: npm ci
       - run: npm test
 
-  demo:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: npm ci
-      - id: nodenv
-        uses: ./
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '${{ steps.nodenv.outputs.node-version }}'
-      - run: node -v
-
   setup-nodenv:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: npm ci
-      - id: nodenv
-        uses: ./setup-nodenv
+      - uses: ./setup-nodenv
       - run: nodenv --version
+
+  node-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - id: nodenv
+        uses: ./node-version
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '${{ steps.nodenv.outputs.node-version }}'
+      - run: node -v
