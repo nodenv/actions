@@ -16,7 +16,7 @@
   "scripts": {
     "lint": "standard --fix",
     "posttest": "npm run lint",
-    "test": "jest test/lib",
+    "test": "jest setup-nodenv node-version",
     "build:setup-nodenv": "cd setup-nodenv && ncc build",
     "build:node-version": "cd node-version && ncc build",
     "prepare": "npm run build:setup-nodenv && npm run build:node-version",

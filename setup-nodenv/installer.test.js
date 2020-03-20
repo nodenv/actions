@@ -5,10 +5,10 @@ const process = require('process')
 const path = require('path')
 const existsSync = require('fs').existsSync
 
-process.env.RUNNER_TOOL_CACHE = path.join(__dirname, '../runner/tools')
-process.env.RUNNER_TEMP = path.join(__dirname, '../runner/temp')
+process.env.RUNNER_TOOL_CACHE = path.join(__dirname, '../tmp/runner_tools')
+process.env.RUNNER_TEMP = path.join(__dirname, '../tmp/runner_temp')
 
-const installNodenv = require('../../setup-nodenv/installer').installNodenv
+const installNodenv = require('./installer').installNodenv
 
 describe('installer tests', () => {
   beforeAll(async () => {
