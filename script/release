@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+action=$1
+
+# shellcheck disable=SC2076 # we _want_ $action matched literally
+[[ " setup-nodenv node-version " =~ "$action" ]] || { echo "Invalid action name" >&2; exit 1; }
+
+# Derive the major-version branchname from current tag
+branch="$(git describe --tags --match 'v[[:digit:]]*' | sed 's/\..*$//')"
+remote="https://github.com/nodenv/actions-$action.git"
+
+git subtree push --prefix="$action" --rejoin "$remote" "$branch"
