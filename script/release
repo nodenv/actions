@@ -3,11 +3,14 @@ set -euo pipefail
 
 action=$1
 
+# take version param; fallback to npm env var; fallback to asking git
+version=${2:-${npm_package_version:-$(git describe --tags --match 'v[[:digit:]]*')}}
+version=${version%%.*} # strip all but major
+branch=v${version#v} # ensure 'v' prefix
+
 # shellcheck disable=SC2076 # we _want_ $action matched literally
 [[ " setup-nodenv node-version " =~ "$action" ]] || { echo "Invalid action name" >&2; exit 1; }
 
-# Derive the major-version branchname from current tag
-branch="$(git describe --tags --match 'v[[:digit:]]*' | sed 's/\..*$//')"
 remote="https://github.com/nodenv/actions-$action.git"
 
-git subtree push --prefix="$action" --rejoin "$remote" "$branch"
+git subtree push --prefix="$action" --rejoin "$remote" "${branch:?}"
