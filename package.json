@@ -46,6 +46,11 @@
     "nodenv",
     "version"
   ],
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "/tmp"
+    ]
+  },
   "standard": {
     "ignore": "dist"
   }
