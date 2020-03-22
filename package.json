@@ -19,7 +19,7 @@
     "lint": "standard --fix",
     "posttest": "npm run lint",
     "test": "jest $npm_package_actions",
-    "prepare": "for a in $npm_package_actions; do pushd $a && ncc build && popd; done",
+    "prepare": "for a in $npm_package_actions; do (cd $a && echo $PWD && ncc build); done",
     "preversion": "npm run prepare",
     "version": "git add -- */dist",
     "postversion": "script/release"
