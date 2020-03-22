@@ -1,16 +1,25 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-action=$1
+if [ master != "$(git symbolic-ref --short HEAD)" ]; then
+  >&2 echo "Aborting: Not currently on master branch"
+  >&2 echo "(tag-deletion likely required)"
+  exit 1
+fi
 
 # take version param; fallback to npm env var; fallback to asking git
-version=${2:-${npm_package_version:-$(git describe --tags --match 'v[[:digit:]]*')}}
+version=${1:-${npm_package_version:-$(git describe --tags --match 'v[[:digit:]]*')}}
 version=${version%%.*} # strip all but major
 branch=v${version#v} # ensure 'v' prefix
 
-# shellcheck disable=SC2076 # we _want_ $action matched literally
-[[ " setup-nodenv node-version " =~ "$action" ]] || { echo "Invalid action name" >&2; exit 1; }
+script/push-masters
 
-remote="https://github.com/nodenv/actions-$action.git"
+>&2 echo "Pushing to major-version branch: $branch"
+git push https://github.com/nodenv/actions master:"$branch"
 
-git subtree push --prefix="$action" --rejoin "$remote" "${branch:?}"
+for action in node-version setup-nodenv; do
+  remote="https://github.com/nodenv/actions-$action.git"
+
+  >&2 echo "Pushing subtree major-version: $action $branch"
+  git subtree push --prefix="$action" "$remote" "${branch:?}"
+done

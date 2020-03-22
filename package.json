@@ -22,10 +22,7 @@
     "prepare": "for a in $npm_package_actions; do pushd $a && ncc build && popd; done",
     "preversion": "npm run prepare",
     "version": "git add -- */dist",
-    "postversion": "git push --follow-tags && npm run release",
-    "release": "npm run release:setup-nodenv && npm run release:node-version",
-    "release:setup-nodenv": "script/release setup-nodenv",
-    "release:node-version": "script/release node-version"
+    "postversion": "script/release"
   },
   "dependencies": {
     "@actions/core": "^1.2.3",
