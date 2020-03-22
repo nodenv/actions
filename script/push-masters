@@ -2,13 +2,16 @@
 set -euo pipefail
 
 if [ master != "$(git symbolic-ref --short HEAD)" ]; then
-  echo "Aborting: Not currently on master branch" >&2
+  >&2 echo "Aborting: Not currently on master branch"
   exit 1
 fi
 
-git push
+>&2 echo "Pushing master with tags"
+git push --follow-tags
 
 for action in node-version setup-nodenv; do
   remote="https://github.com/nodenv/actions-$action.git"
+
+  >&2 echo "Pushing subtree master: $action"
   git subtree push --prefix="$action" "$remote" master
 done
