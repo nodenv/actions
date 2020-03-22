@@ -13,13 +13,13 @@
   "bugs": {
     "url": "https://github.com/nodenv/actions/issues"
   },
+  "actions": "node-version setup-nodenv",
   "scripts": {
+    "clean": "git checkout -- */dist",
     "lint": "standard --fix",
     "posttest": "npm run lint",
-    "test": "jest setup-nodenv node-version",
-    "build:setup-nodenv": "cd setup-nodenv && ncc build",
-    "build:node-version": "cd node-version && ncc build",
-    "prepare": "npm run build:setup-nodenv && npm run build:node-version",
+    "test": "jest $npm_package_actions",
+    "prepare": "for a in $npm_package_actions; do pushd $a && ncc build && popd; done",
     "preversion": "npm run prepare",
     "version": "git add -- */dist",
     "postversion": "git push --follow-tags && npm run release",
