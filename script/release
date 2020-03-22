@@ -1,4 +1,12 @@
 #!/usr/bin/env bash
+# Usage:
+#   release [version]
+#   (expected to be run from master branch)
+#
+# Options:
+#   version     The semver version to release. (may include 'v' prefix)
+#               [default: read from package.json or reachable git-tag matching /v\d/]
+#
 set -euo pipefail
 
 if [ master != "$(git symbolic-ref --short HEAD)" ]; then
@@ -10,16 +18,19 @@ fi
 # take version param; fallback to npm env var; fallback to asking git
 version=${1:-${npm_package_version:-$(git describe --tags --match 'v[[:digit:]]*')}}
 version=${version%%.*} # strip all but major
+: "${version:?}"
+
 branch=v${version#v} # ensure 'v' prefix
+actions=${npm_package_actions:-$(node -p "require('./package').actions")}
 
 script/push-masters
 
 >&2 echo "Pushing to major-version branch: $branch"
 git push https://github.com/nodenv/actions master:"$branch"
 
-for action in node-version setup-nodenv; do
+for action in ${actions:?}; do
   remote="https://github.com/nodenv/actions-$action.git"
 
   >&2 echo "Pushing subtree major-version: $action $branch"
-  git subtree push --prefix="$action" "$remote" "${branch:?}"
+  git subtree push --prefix="$action" "$remote" "$branch"
 done
