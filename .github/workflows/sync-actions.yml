@@ -1,7 +1,9 @@
 name: Sync Actions
 on:
   push:
-    branches: master
+    branches:
+      - master
+      - v[0-9]+
 
 jobs:
   push:
@@ -14,6 +16,7 @@ jobs:
         with:
           fetch-depth: 0 # need full history to replay subtree history
           token: ${{secrets.REPO_TOKEN}} # this token is persisted and thus used for subsequent git operations
-      - run: git subtree push --prefix ${{matrix.action}} "$remote" master
+      - run: git subtree push --prefix ${{matrix.action}} "$remote" "${branch#refs/heads/}"
         env:
           remote: https://github.com/nodenv/actions-${{matrix.action}}
+          branch: ${{github.ref}}
