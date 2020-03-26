@@ -1,19 +1,5 @@
 #!/usr/bin/env bash
-# Usage:
-#   release [version]
-#   (expected to be run from master branch)
-#
-# Options:
-#   version     The semver version to release. (may include 'v' prefix)
-#               [default: read from package.json or reachable git-tag matching /v\d/]
-#
 set -euo pipefail
-
-if [ master != "$(git symbolic-ref --short HEAD)" ]; then
-  >&2 echo "Aborting: Not currently on master branch"
-  >&2 echo "(tag-deletion likely required)"
-  exit 1
-fi
 
 # take version param; fallback to npm env var; fallback to asking git
 version=${1:-${npm_package_version:-$(git describe --tags --match 'v[[:digit:]]*')}}

@@ -20,7 +20,7 @@
     "posttest": "npm run lint",
     "test": "jest $npm_package_actions",
     "prepare": "for a in $npm_package_actions; do (cd $a && echo $PWD && ncc build); done",
-    "preversion": "npm run prepare",
+    "preversion": "npm run prepare && test master = $(git symbolic-ref --short HEAD)",
     "version": "git add -- */dist",
     "postversion": "script/release"
   },
