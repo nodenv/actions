@@ -22,7 +22,7 @@
     "prepare": "for a in $npm_package_actions; do (cd $a && echo $PWD && ncc build); done",
     "preversion": "npm run prepare && test master = $(git symbolic-ref --short HEAD)",
     "version": "git add -- */dist",
-    "postversion": "script/release"
+    "postversion": "git push --follow-tags && script/release"
   },
   "dependencies": {
     "@actions/core": "^1.2.3",

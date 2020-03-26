@@ -8,8 +8,4 @@ version=${version%%.*} # strip all but major
 
 branch=v${version#v} # ensure 'v' prefix
 
->&2 echo "Pushing master with tags"
-git push --follow-tags
-
->&2 echo "Pushing to major-version branch: $branch"
 git push https://github.com/nodenv/actions master:"$branch"
