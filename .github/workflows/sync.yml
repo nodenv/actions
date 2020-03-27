@@ -1,12 +1,11 @@
 name: Sync Actions
 on:
   push:
-    branches:
-      - master
-      - v[0-9]+
+    branches: master
+    tags: 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
-  push:
+  sync:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -14,9 +13,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0 # need full history to replay subtree history
-          token: ${{secrets.REPO_TOKEN}} # this token is persisted and thus used for subsequent git operations
-      - run: git subtree push --prefix ${{matrix.action}} "$remote" "${branch#refs/heads/}"
+          fetch-depth: 0 # fetches full history to replay for subtree
+          token: ${{secrets.REPO_TOKEN}} # this is persisted for subsequent git operations
+      - run: |
+          split_head=$(git subtree split --prefix ${{matrix.action}})
+          git push $remote ${split_head:?}:${{github.ref}}
         env:
-          remote: https://github.com/nodenv/actions-${{matrix.action}}
-          branch: ${{github.ref}}
+          remote: https://github.com/${{github.repository}}-${{matrix.action}}
