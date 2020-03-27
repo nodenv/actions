@@ -1,5 +1,8 @@
 # GitHub Actions for nodenv
 
+[![Test](https://github.com/nodenv/actions/workflows/Test/badge.svg)](https://github.com/nodenv/actions/actions?query=workflow%3ATest)
+[![Examples](https://github.com/nodenv/actions/workflows/Examples/badge.svg)](https://github.com/nodenv/actions/actions?query=workflow%3AExamples)
+
 This is a monorepo for multiple nodenv-related GitHub Actions.
 Each individual action is split (via git-subtree) and pushed to its own constituent repo.
 This is presently necessary because an action must have its own repo and Release in order to be listed on the marketplace.
