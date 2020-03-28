@@ -1,7 +1,8 @@
 # GitHub Actions for nodenv
 
-[![Test](https://github.com/nodenv/actions/workflows/Test/badge.svg)](https://github.com/nodenv/actions/actions?query=workflow%3ATest)
-[![Examples](https://github.com/nodenv/actions/workflows/Examples/badge.svg)](https://github.com/nodenv/actions/actions?query=workflow%3AExamples)
+[![Latest Release](https://img.shields.io/github/v/release/nodenv/actions?logo=github&sort=semver)](https://github.com/nodenv/actions/releases/latest)
+[![Test](https://img.shields.io/github/workflow/status/nodenv/actions/Test?label=tests&logo=github)](https://github.com/nodenv/actions/actions?query=workflow%3ATest)
+[![Examples](https://img.shields.io/github/workflow/status/nodenv/actions/Examples?color=orange&label=examples&logo=github)](https://github.com/nodenv/actions/actions?query=workflow%3AExamples)
 
 This is a monorepo for multiple nodenv-related GitHub Actions.
 Each individual action is split (via git-subtree) and pushed to its own constituent repo.
