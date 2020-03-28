@@ -13,10 +13,10 @@ Hopefully, this limitation will be eliminated at some point.
 
 Installs nodenv and adds it to PATH for subsequent steps to make use of nodenv.
     
-Usage and examples in [its readme](setup-nodenv)
+For usage and examples see [its readme](setup-nodenv) in this monorepo.
 
 ### node-version [![repo](https://img.shields.io/badge/repo--lightgrey?style=social&logo=github)](https://github.com/nodenv/actions-node-version) [![Latest Release](https://img.shields.io/github/v/release/nodenv/actions-node-version?logo=github&sort=semver)](https://github.com/nodenv/actions-node-version/releases/latest)
 
 Exposes node version (via `nodenv local`) as a step output. Suitable to read .node-version and provide as input to [setup-node action](https://github.com/actions/setup-node)
     
-Usage and examples in [its readme](node-version)
+For usage and examples see [its readme](node-version) in this monorepo.
