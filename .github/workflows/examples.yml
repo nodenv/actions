@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm ci
-      - uses: ./setup-nodenv
+      - uses: ./setup-nodenv # this would be nodenv/actions/setup-nodenv@v2 for most users
       - run: nodenv --version
 
   node-version:
@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: npm ci
       - id: nodenv
-        uses: ./node-version
+        uses: ./node-version # this would be nodenv/actions/node-version@v2 for most users
       - uses: actions/setup-node@v1
         with:
           node-version: '${{ steps.nodenv.outputs.node-version }}'
