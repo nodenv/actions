@@ -9,10 +9,14 @@ Each individual action is split (via git-subtree) and pushed to its own constitu
 This is presently necessary because an action must have its own repo and Release in order to be listed on the marketplace.
 Hopefully, this limitation will be eliminated at some point.
 
-- [setup-nodenv](setup-nodenv) ([repo](https://github.com/nodenv/actions-setup-nodenv)) [![Latest Release](https://img.shields.io/github/v/release/nodenv/actions-setup-nodenv?logo=github&sort=semver)](https://github.com/nodenv/actions-setup-nodenv/releases/latest)
+### setup-nodenv [![repo](https://img.shields.io/badge/repo--lightgrey?style=social&logo=github)](https://github.com/nodenv/actions-setup-nodenv) [![Latest Release](https://img.shields.io/github/v/release/nodenv/actions-setup-nodenv?logo=github&sort=semver)](https://github.com/nodenv/actions-setup-nodenv/releases/latest)
 
-    installs nodenv and adds it to PATH
+Installs nodenv and adds it to PATH for subsequent steps to make use of nodenv.
+    
+Usage and examples in [its readme](setup-nodenv)
 
-- [node-version](node-version) ([repo](https://github.com/nodenv/actions-node-version)) [![Latest Release](https://img.shields.io/github/v/release/nodenv/actions-node-version?logo=github&sort=semver)](https://github.com/nodenv/actions-node-version/releases/latest)
+### node-version [![repo](https://img.shields.io/badge/repo--lightgrey?style=social&logo=github)](https://github.com/nodenv/actions-node-version) [![Latest Release](https://img.shields.io/github/v/release/nodenv/actions-node-version?logo=github&sort=semver)](https://github.com/nodenv/actions-node-version/releases/latest)
 
-    exposes node version (via `nodenv local`) as a step output
+Exposes node version (via `nodenv local`) as a step output. Suitable to read .node-version and provide as input to [setup-node action](https://github.com/actions/setup-node)
+    
+Usage and examples in [its readme](node-version)
