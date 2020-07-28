@@ -11,12 +11,12 @@ Hopefully, this limitation will be eliminated at some point.
 
 ### setup-nodenv [![repo](https://img.shields.io/badge/---?label=repo&style=social&logo=github)](https://github.com/nodenv/actions-setup-nodenv)
 
-Installs nodenv and adds it to PATH for subsequent steps to make use of nodenv.
-    
+Installs nodenv and adds it to `PATH` for subsequent steps to make use of nodenv.
+
 For usage and examples see [its readme](setup-nodenv) in this monorepo.
 
 ### node-version [![repo](https://img.shields.io/badge/---?label=repo&style=social&logo=github)](https://github.com/nodenv/actions-node-version)
 
 Exposes node version (via `nodenv local`) as a step output. Suitable to read .node-version and provide as input to [setup-node action](https://github.com/actions/setup-node)
-    
+
 For usage and examples see [its readme](node-version) in this monorepo.
