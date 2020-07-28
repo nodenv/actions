@@ -33,9 +33,9 @@
     "@actions/io": "^1.0.2",
     "@nodenv/devutil": "^0.1.1",
     "@zeit/ncc": "^0.21.1",
-    "jest": "^25.1.0",
-    "prettier-standard": "^16.2.1",
-    "standard": "^14.3.3"
+    "jest": "^25.5.4",
+    "prettier-standard": "^16.4.1",
+    "standard": "^14.3.4"
   },
   "keywords": [
     "GitHub",
