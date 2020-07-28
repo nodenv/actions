@@ -1,4 +1,4 @@
-name: Sync Actions
+name: Sync Subtrees
 on:
   push:
     branches: master
