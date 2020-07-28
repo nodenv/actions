@@ -32,7 +32,7 @@
   "devDependencies": {
     "@actions/io": "^1.0.2",
     "@nodenv/devutil": "^0.1.1",
-    "@zeit/ncc": "^0.21.1",
+    "@zeit/ncc": "^0.22.3",
     "jest": "^26.1.0",
     "prettier-standard": "^16.4.1",
     "standard": "^14.3.4"
