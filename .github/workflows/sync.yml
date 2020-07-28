@@ -1,4 +1,4 @@
-name: Sync Actions
+name: Sync Subtrees
 on:
   push:
     branches: master
@@ -13,8 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0 # fetches full history to replay for subtree
-          token: ${{secrets.REPO_TOKEN}} # this is persisted for subsequent git operations
+          fetch-depth: 0 # fetch full history to replay in subtree
+          token: ${{secrets.BOT_TOKEN}} # persisted for subsequent git operations
       - run: |
           split_head=$(git subtree split --prefix ${{matrix.action}})
           git push $remote ${split_head:?}:${{github.ref}}

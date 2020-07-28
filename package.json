@@ -20,9 +20,10 @@
     "posttest": "npm run lint",
     "test": "jest $npm_package_actions",
     "prepare": "for a in $npm_package_actions; do (cd $a && echo $PWD && ncc build); done",
-    "preversion": "npm run prepare && test master = $(git symbolic-ref --short HEAD)",
+    "preversion": "npm run prepare",
     "version": "git add -- */dist",
-    "postversion": "git push --follow-tags"
+    "postversion": "git push --follow-tags",
+    "relnotes": "changelog"
   },
   "dependencies": {
     "@actions/core": "^1.2.3",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "@actions/io": "^1.0.2",
+    "@nodenv/devutil": "^0.1.1",
     "@zeit/ncc": "^0.21.1",
     "jest": "^25.1.0",
     "prettier-standard": "^16.2.1",
