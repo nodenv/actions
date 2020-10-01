@@ -26,7 +26,7 @@
     "relnotes": "changelog"
   },
   "dependencies": {
-    "@actions/core": "^1.2.4",
+    "@actions/core": "^1.2.6",
     "@actions/tool-cache": "^1.6.0"
   },
   "devDependencies": {
