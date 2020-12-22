@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  sync:
+  subtrees:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -21,3 +21,8 @@ jobs:
           git push $remote ${split_head:?}:${{github.ref}}
         env:
           remote: https://github.com/${{github.repository}}-${{matrix.action}}
+  master:
+    runs-on: ubuntu-latest
+    if: github.ref == refs/heads/main
+    steps:
+      - run: git push --force-with-lease origin master
