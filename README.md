@@ -9,6 +9,9 @@ Each individual action is split (via git-subtree) and pushed to its own constitu
 This is presently necessary because an action must have its own repo and Release in order to be listed on the marketplace.
 Hopefully, this limitation will be eliminated at some point.
 
+**NOTICE:** The default branch for this repo (and the constituent repos), has been changed to `main`.
+Be sure to update any references to `master` accordingly.
+
 ### setup-nodenv [![repo](https://img.shields.io/badge/---?label=repo&style=social&logo=github)](https://github.com/nodenv/actions-setup-nodenv)
 
 Installs nodenv and adds it to `PATH` for subsequent steps to make use of nodenv.
