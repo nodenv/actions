@@ -12,6 +12,9 @@ jobs:
       matrix:
         action: [node-version, setup-nodenv]
     steps:
+      - uses: crazy-max/ghaction-import-gpg@v3
+        with:
+          gpg-private-key: ${{ secrets.AUTH_KEY }}
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0 # fetch full history to replay in subtree
