@@ -12,12 +12,10 @@ jobs:
       matrix:
         action: [node-version, setup-nodenv]
     steps:
-      - uses: crazy-max/ghaction-import-gpg@v3
-        with:
-          gpg-private-key: ${{ secrets.AUTH_KEY }}
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0 # fetch full history to replay in subtree
+          token: ${{secrets.BOT_TOKEN}} # persisted for subsequent git operations
       - run: |
           split_head=$(git subtree split --prefix ${{matrix.action}})
           git push $remote ${split_head:?}:${{github.ref}}
