@@ -2,7 +2,7 @@ name: Sync Subtrees
 on:
   push:
     branches: main
-    tags: 'v[0-9]+.[0-9]+.[0-9]+'
+    tags: "v[0-9]+.[0-9]+.[0-9]+"
   workflow_dispatch:
 
 jobs:
