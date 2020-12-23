@@ -19,5 +19,5 @@ jobs:
         uses: ./node-version # this would be nodenv/actions/node-version@v2 for most users
       - uses: actions/setup-node@v1
         with:
-          node-version: '${{ steps.nodenv.outputs.node-version }}'
+          node-version: "${{ steps.nodenv.outputs.node-version }}"
       - run: node -v
