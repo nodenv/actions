@@ -1,0 +1,20 @@
+name: Build
+on:
+  push:
+    branches: main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{secrets.BOT_TOKEN}}
+      - uses: crazy-max/ghaction-import-gpg@v3.0.2
+        with:
+          gpg-private-key: ${{secrets.BOT_GPG_SIGN_KEY}}
+          git-user-signingkey: true
+      - run: npm ci
+      - run: git diff --quiet || git commit --all -m 'Build' --gpg-sign=FD5E66973D2B8B86
+      - run: git push --signed=if-asked
