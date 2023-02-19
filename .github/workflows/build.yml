@@ -1,20 +1,22 @@
+# Do a clean build and commit back changes.
+# This way any changes made via merge on github will be
+# effective on main without needing a tagged release.
 name: Build
 on:
-  push:
-    branches: main
+  push: { branches: main }
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{secrets.BOT_TOKEN}}
-      - uses: crazy-max/ghaction-import-gpg@v3.0.2
+      - uses: crazy-max/ghaction-import-gpg@v5
         with:
-          gpg-private-key: ${{secrets.BOT_GPG_SIGN_KEY}}
-          git-user-signingkey: true
+          gpg_private_key: ${{secrets.BOT_GPG_SIGN_KEY}}
+          git_user_signingkey: true
       - run: npm ci
-      - run: git diff --quiet || git commit --all -m 'Build' --gpg-sign=FD5E66973D2B8B86
+      - run: git diff --quiet || git commit -am Build -S FD5E66973D2B8B86
       - run: git push --signed=if-asked
