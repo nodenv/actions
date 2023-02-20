@@ -26,16 +26,16 @@
     "relnotes": "changelog"
   },
   "dependencies": {
-    "@actions/core": "^1.9.1",
-    "@actions/tool-cache": "^1.6.1"
+    "@actions/core": "^1",
+    "@actions/tool-cache": "^2"
   },
   "devDependencies": {
-    "@actions/io": "^1.0.2",
+    "@actions/io": "^1",
     "@nodenv/devutil": "^0.1.1",
-    "@zeit/ncc": "^0.22.3",
-    "jest": "^26.6.3",
-    "prettier-standard": "^16.4.1",
-    "standard": "^16.0.3"
+    "@vercel/ncc": "^0.36.1",
+    "jest": "^29",
+    "prettier-standard": "^15.0.1",
+    "standard": "^17"
   },
   "keywords": [
     "GitHub",
@@ -51,6 +51,8 @@
     ]
   },
   "standard": {
-    "ignore": "dist"
+    "ignore": [
+      "dist"
+    ]
   }
 }

@@ -5,19 +5,17 @@ jobs:
   setup-nodenv:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: npm ci
-      - uses: ./setup-nodenv # this would be nodenv/actions/setup-nodenv@v2 for most users
+      - uses: actions/checkout@v3
+      - uses: ./setup-nodenv # normally nodenv/actions/setup-nodenv@v2
       - run: nodenv --version
 
   node-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: npm ci
+      - uses: actions/checkout@v3
       - id: nodenv
-        uses: ./node-version # this would be nodenv/actions/node-version@v2 for most users
-      - uses: actions/setup-node@v1
+        uses: ./node-version # normally nodenv/actions/node-version@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: "${{ steps.nodenv.outputs.node-version }}"
       - run: node -v

@@ -12,7 +12,7 @@ jobs:
       matrix:
         action: [node-version, setup-nodenv]
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0 # fetch full history to replay in subtree
           token: ${{secrets.BOT_TOKEN}} # persisted for subsequent git operations
@@ -26,5 +26,5 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: git push --force origin HEAD:refs/heads/master
