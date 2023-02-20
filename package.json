@@ -1,6 +1,6 @@
 {
   "name": "@nodenv/actions",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "private": true,
   "description": "GitHub Action to select node version with nodenv",
   "homepage": "https://github.com/nodenv/actions",
