@@ -21,4 +21,4 @@ jobs:
         run: |
           tag=${tag#refs/tags/}
           major=${tag%%.*}
-          git push -f origin HEAD:refs/heads/$major
+          git push -f origin "HEAD:refs/heads/$major"
