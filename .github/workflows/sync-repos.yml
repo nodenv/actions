@@ -19,6 +19,6 @@ jobs:
           token: ${{secrets.BOT_TOKEN}} # applies to subsequent git operations
       - run: |
           split_head=$(git subtree split --prefix ${{matrix.action}})
-          git push $remote ${split_head:?}:${{github.ref}}
+          git push "$remote" "${split_head:?}:${{github.ref}}"
         env:
           remote: https://github.com/${{github.repository}}-${{matrix.action}}
