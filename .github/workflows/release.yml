@@ -8,8 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with: { fetch-depth: 0 }
-      - run: npm ci
       - run: gh release create ${{github.ref_name}} --generate-notes
         env:
           GH_TOKEN: ${{ github.token }}
