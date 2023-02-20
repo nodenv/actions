@@ -8,6 +8,7 @@ on:
 
 permissions:
   actions: write # allow pushing workflow files to subtree repos
+  contents: write
 
 jobs:
   subtrees:
