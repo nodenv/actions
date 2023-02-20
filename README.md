@@ -5,11 +5,11 @@
 [![Examples](https://img.shields.io/github/workflow/status/nodenv/actions/Examples?color=orange&label=examples&logo=github)](https://github.com/nodenv/actions/actions?query=workflow%3AExamples)
 
 This is a monorepo for multiple nodenv-related GitHub Actions.
-Each individual action is split (via git-subtree) and pushed to its own constituent repo.
-This is presently necessary because an action must have its own repo and Release in order to be listed on the marketplace.
+Each individual action is split (via git-subtree) and pushed to its own constituent repository.
+This is presently necessary because an action must have its own repository and Release in order to be listed on the marketplace.
 Hopefully, this limitation will be eliminated at some point.
 
-**NOTICE:** The default branch for this repo (and the constituent repos), has been changed to `main`.
+**NOTICE:** The default branch for this repository (and the constituent repositories), has been changed to `main`.
 Be sure to update any references to `master` accordingly.
 
 ## Actions
