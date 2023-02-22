@@ -5,20 +5,7 @@ on:
 
 jobs:
   github:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - run: gh release create ${{github.ref_name}} --generate-notes
-        env:
-          GH_TOKEN: ${{ github.token }}
+    uses: nodenv/.github/.github/workflows/release.yml@v1
 
   major-version:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - env:
-          tag: ${{github.ref}}
-        run: |
-          tag=${tag#refs/tags/}
-          major=${tag%%.*}
-          git push -f origin "HEAD:refs/heads/$major"
+    uses: nodenv/.github/.github/workflows/tag-major.yml@v1
