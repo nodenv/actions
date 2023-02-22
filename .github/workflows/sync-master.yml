@@ -1,13 +1,8 @@
 name: Sync Master
 on:
   push: { branches: main }
-  workflow_call:
   workflow_dispatch:
 
 jobs:
   sync:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - uses: actions/checkout@v3
-      - run: git push --force origin HEAD:refs/heads/master
+    uses: nodenv/.github/.github/workflows/sync-master.yml@main
