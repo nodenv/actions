@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           token: ${{secrets.BOT_TOKEN}}
-      - uses: crazy-max/ghaction-import-gpg@v5
+      - uses: crazy-max/ghaction-import-gpg@v6
         with:
           gpg_private_key: ${{secrets.BOT_GPG_SIGN_KEY}}
           git_user_signingkey: true
