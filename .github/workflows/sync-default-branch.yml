@@ -1,11 +1,15 @@
-name: Sync Repos
+name: Sync Refs
 on:
   push:
     branches: main
     tags: v*.*.*
+  workflow_call:
   workflow_dispatch:
 
 jobs:
+  sync:
+    uses: nodenv/.github/.github/workflows/sync-default-branch.yml@v3
+
   subtrees:
     runs-on: ubuntu-latest
     strategy:
