@@ -6,4 +6,4 @@ on:
 
 jobs:
   sync:
-    uses: nodenv/.github/.github/workflows/sync-master.yml@v1
+    uses: nodenv/.github/.github/workflows/sync-default-branch.yml@v3
