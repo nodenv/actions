@@ -1,7 +1,10 @@
 name: Release
 on:
   push: { tags: "v*.*.*" }
+  workflow_dispatch:
   workflow_call:
+
+permissions: { contents: write }
 
 jobs:
   github:
