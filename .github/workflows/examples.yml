@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./setup-nodenv # normally nodenv/actions/setup-nodenv@v2
+      - uses: ./setup-nodenv # non-example: nodenv/actions/setup-nodenv@v3
       - run: nodenv --version
 
   node-version:
@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: nodenv
-        uses: ./node-version # normally nodenv/actions/node-version@v2
+        uses: ./node-version # non-example: nodenv/actions/node-version@v3
       - uses: actions/setup-node@v4
         with:
           node-version: "${{ steps.nodenv.outputs.node-version }}"
