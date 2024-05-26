@@ -5,7 +5,7 @@ on:
 
 jobs:
   github:
-    uses: nodenv/.github/.github/workflows/release.yml@v1
+    uses: nodenv/.github/.github/workflows/release.yml@v3
 
   major-version:
-    uses: nodenv/.github/.github/workflows/tag-major.yml@v1
+    uses: nodenv/.github/.github/workflows/tag-major.yml@v3
