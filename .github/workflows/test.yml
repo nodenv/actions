@@ -1,6 +1,11 @@
 name: Test
 on: [push, pull_request]
 
+permissions:
+  contents: read
+  packages: read
+  statuses: write # to report status checks
+
 jobs:
   test-lint:
     uses: nodenv/.github/.github/workflows/test.yml@v3
