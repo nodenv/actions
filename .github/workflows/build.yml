@@ -20,5 +20,5 @@ jobs:
           gpg_private_key: ${{secrets.BOT_GPG_SIGN_KEY}}
           git_user_signingkey: true
       - run: npm ci
-      - run: git diff --quiet || git commit -am Build -S FD5E66973D2B8B86
+      - run: git diff --quiet || git commit -am Build --gpg-sign=FD5E66973D2B8B86
       - run: git push --signed=if-asked
