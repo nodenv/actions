@@ -1,6 +1,8 @@
 name: Examples
 on: push
 
+permissions: { contents: read }
+
 jobs:
   setup-nodenv:
     runs-on: ubuntu-latest
