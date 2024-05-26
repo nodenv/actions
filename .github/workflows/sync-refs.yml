@@ -13,13 +13,12 @@ jobs:
     uses: nodenv/.github/.github/workflows/sync-default-branch.yml@v3
 
   subtrees:
-    if: github.repository == 'nodenv/actions'
+    if: github.repository == github.action_repository
     runs-on: ubuntu-latest
     strategy:
       matrix:
         action: [node-version, setup-nodenv]
     steps:
-      - run: echo ${{ github.action_repository }}
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # fetch full history to replay in subtree
