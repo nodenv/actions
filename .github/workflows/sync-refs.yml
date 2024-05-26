@@ -6,6 +6,8 @@ on:
   workflow_call:
   workflow_dispatch:
 
+permissions: { contents: write }
+
 jobs:
   sync:
     uses: nodenv/.github/.github/workflows/sync-default-branch.yml@v3
