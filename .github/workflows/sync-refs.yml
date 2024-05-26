@@ -13,7 +13,7 @@ jobs:
     uses: nodenv/.github/.github/workflows/sync-default-branch.yml@v3
 
   subtrees:
-    if: github.repository == github.action_repository
+    if: github.repository == 'nodenv/actions' # skip this job in subtree repos
     runs-on: ubuntu-latest
     strategy:
       matrix:
