@@ -8,4 +8,4 @@ permissions:
 
 jobs:
   test-lint:
-    uses: nodenv/.github/.github/workflows/test.yml@v3
+    uses: nodenv/.github/.github/workflows/test.yml@v4

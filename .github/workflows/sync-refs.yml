@@ -10,7 +10,7 @@ permissions: { contents: write }
 
 jobs:
   sync:
-    uses: nodenv/.github/.github/workflows/sync-default-branch.yml@v3
+    uses: nodenv/.github/.github/workflows/sync-default-branch.yml@v4
 
   subtrees:
     if: github.repository == 'nodenv/actions' # skip this job in subtree repos
