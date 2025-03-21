@@ -1,5 +1,7 @@
-# node-version [![monorepo](https://img.shields.io/badge/---?label=monorepo&style=social&logo=github)](https://github.com/nodenv/actions)
-
++git clone https://github.com/github/docs
+cd docs
+npm ci
+npm start
 [![Latest Release](https://img.shields.io/github/v/release/nodenv/actions-node-version?logo=github&sort=semver)](https://github.com/nodenv/actions-node-version/releases/latest)
 [![Test](https://img.shields.io/github/actions/workflow/status/nodenv/actions/test.yml?branch=main&label=tests&logo=github)](https://github.com/nodenv/actions/actions/workflows/test.yml)
 [![Examples](https://img.shields.io/github/actions/workflow/status/nodenv/actions/examples.yml?branch=main&color=orange&label=examples&logo=github)](https://github.com/nodenv/actions/actions/workflows/examples.yml)
