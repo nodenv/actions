@@ -2,21 +2,23 @@
 
 version: 2
 updates:
-  - package-ecosystem: "github-actions"
+  - package-ecosystem: github-actions
     directory: "/"
-    schedule: { interval: "weekly" }
-  - package-ecosystem: "npm"
+    schedule: { interval: weekly }
+  - package-ecosystem: npm
     directory: "/"
-    schedule: { interval: "weekly" }
-  - package-ecosystem: "github-actions"
+    schedule: { interval: weekly }
+
+  - package-ecosystem: github-actions
     directory: "/node-version"
-    schedule: { interval: "weekly" }
-  - package-ecosystem: "npm"
+    schedule: { interval: weekly }
+  - package-ecosystem: npm
     directory: "/node-version"
-    schedule: { interval: "weekly" }
-  - package-ecosystem: "github-actions"
+    schedule: { interval: weekly }
+  
+  - package-ecosystem: github-actions
     directory: "/setup-nodenv"
-    schedule: { interval: "weekly" }
-  - package-ecosystem: "npm"
+    schedule: { interval: weekly }
+  - package-ecosystem: npm
     directory: "/setup-nodenv"
-    schedule: { interval: "weekly" }
+    schedule: { interval: weekly }
