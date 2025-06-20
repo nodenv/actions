@@ -7,17 +7,17 @@ jobs:
   setup-nodenv:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: ./setup-nodenv # non-example: nodenv/actions/setup-nodenv@v3
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: ./setup-nodenv # in reality would be: nodenv/actions/setup-nodenv@v3
       - run: nodenv --version
 
   node-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - id: nodenv
-        uses: ./node-version # non-example: nodenv/actions/node-version@v3
-      - uses: actions/setup-node@v4
+        uses: ./node-version # in reality would be: nodenv/actions/node-version@v3
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: "${{ steps.nodenv.outputs.node-version }}"
       - run: node -v
