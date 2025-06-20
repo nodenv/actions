@@ -10,7 +10,7 @@ permissions: read-all
 
 jobs:
   sync:
-    uses: nodenv/.github/.github/workflows/sync-default-branch.yml@v3
+    uses: nodenv/.github/.github/workflows/sync-default-branch.yml@v5
     permissions: { contents: write }
 
   subtrees:
