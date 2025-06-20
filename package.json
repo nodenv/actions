@@ -45,6 +45,9 @@
     "nodenv",
     "version"
   ],
+  "eslintIgnore": [
+    "dist"
+  ],
   "jest": {
     "modulePathIgnorePatterns": [
       "/tmp"
