@@ -6,15 +6,17 @@ on:
   workflow_call:
   workflow_dispatch:
 
-permissions: { contents: write }
+permissions: read-all
 
 jobs:
   sync:
     uses: nodenv/.github/.github/workflows/sync-default-branch.yml@v3
+    permissions: { contents: write }
 
   subtrees:
     if: github.repository == 'nodenv/actions' # skip this job in subtree repos
     runs-on: ubuntu-latest
+    permissions: { contents: write }
     strategy:
       matrix:
         action: [node-version, setup-nodenv]
