@@ -15,7 +15,7 @@ updates:
   - package-ecosystem: npm
     directory: "/node-version"
     schedule: { interval: weekly }
-  
+
   - package-ecosystem: github-actions
     directory: "/setup-nodenv"
     schedule: { interval: weekly }

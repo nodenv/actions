@@ -1,0 +1,4 @@
+# until better options exist:
+# https://github.com/prettier/prettier/pull/16286
+# https://github.com/prettier/prettier/issues/3460
+dist/
