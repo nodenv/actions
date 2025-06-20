@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
   workflow_call:
 
-permissions: { contents: write }
+permissions: {}
 
 jobs:
-  github:
-    uses: nodenv/.github/.github/workflows/release.yml@v3
-
-  major-version:
-    uses: nodenv/.github/.github/workflows/tag-major.yml@v3
+  release:
+    uses: nodenv/.github/.github/workflows/release.yml@v5
+    permissions: { contents: write, id-token: write }
+    secrets: inherit
+    with: { homebrew: false, npm: false, vMajor: true }
