@@ -33,7 +33,7 @@
   "devDependencies": {
     "@actions/io": "^1",
     "@vercel/ncc": "^0.38.3",
-    "eslint": "^8.57.1",
+    "eslint": "^9.29.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-config-standard": "^17.1.0",
     "jest": "^30"
