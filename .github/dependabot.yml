@@ -2,23 +2,41 @@
 
 version: 2
 updates:
-  - package-ecosystem: github-actions
-    directory: "/"
-    schedule: { interval: weekly }
   - package-ecosystem: npm
     directory: "/"
     schedule: { interval: weekly }
-
+    cooldown: { default-days: 15 }
+    groups:
+      dev-deps: { dependency-type: development }
   - package-ecosystem: github-actions
-    directory: "/node-version"
+    directory: "/"
     schedule: { interval: weekly }
+    cooldown: { default-days: 15 }
+    groups:
+      gh-actions: { patterns: ["*"] }
+
   - package-ecosystem: npm
     directory: "/node-version"
     schedule: { interval: weekly }
-
+    cooldown: { default-days: 15 }
+    groups:
+      dev-deps: { dependency-type: development }
   - package-ecosystem: github-actions
-    directory: "/setup-nodenv"
+    directory: "/node-version"
     schedule: { interval: weekly }
+    cooldown: { default-days: 15 }
+    groups:
+      gh-actions: { patterns: ["*"] }
+
   - package-ecosystem: npm
     directory: "/setup-nodenv"
     schedule: { interval: weekly }
+    cooldown: { default-days: 15 }
+    groups:
+      dev-deps: { dependency-type: development }
+  - package-ecosystem: github-actions
+    directory: "/setup-nodenv"
+    schedule: { interval: weekly }
+    cooldown: { default-days: 15 }
+    groups:
+      gh-actions: { patterns: ["*"] }
