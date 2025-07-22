@@ -7,10 +7,9 @@ on:
   workflow_dispatch:
 
 permissions: {}
-
 jobs:
   sync:
-    uses: nodenv/.github/.github/workflows/sync-default-branch.yml@v5
+    uses: nodenv/.github/.github/workflows/sync-default-branch.yml@v6
     permissions: { contents: write }
 
   subtrees:
