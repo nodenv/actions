@@ -33,10 +33,9 @@
   "devDependencies": {
     "@actions/io": "^1",
     "@vercel/ncc": "^0.38.3",
-    "eslint": "^8.57.1",
-    "eslint-config-prettier": "^10.1.5",
-    "eslint-config-standard": "^17.1.0",
-    "jest": "^30"
+    "eslint": "^9.31.0",
+    "jest": "^30",
+    "neostandard": "^0.12.2"
   },
   "keywords": [
     "GitHub",
@@ -45,15 +44,6 @@
     "node",
     "nodenv",
     "version"
-  ],
-  "eslintConfig": {
-    "extends": [
-      "standard",
-      "prettier"
-    ]
-  },
-  "eslintIgnore": [
-    "**/dist"
   ],
   "jest": {
     "modulePathIgnorePatterns": [
