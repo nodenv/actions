@@ -1,7 +1,7 @@
 # GitHub Actions for nodenv
 
-[![Latest Release](https://img.shields.io/github/v/release/nodenv/actions?logo=github&sort=semver)](https://github.com/nodenv/actions/releases/latest)
-[![Test](https://img.shields.io/github/actions/workflow/status/nodenv/actions/test.yml?branch=main&label=tests&logo=github)](https://github.com/nodenv/actions/actions/workflows/test.yml)
+[![Tests](https://img.shields.io/github/actions/workflow/status/nodenv/actions/test.yml?label=tests&logo=github)](https://github.com/nodenv/actions/actions/workflows/test.yml)
+[![Latest GitHub Release](https://img.shields.io/github/v/release/nodenv/actions?label=github&logo=github&sort=semver)](https://github.com/nodenv/actions/releases/latest)
 [![Examples](https://img.shields.io/github/actions/workflow/status/nodenv/actions/examples.yml?branch=main&color=orange&label=examples&logo=github)](https://github.com/nodenv/actions/actions/workflows/examples.yml)
 
 This is a monorepo for multiple nodenv-related GitHub Actions.
