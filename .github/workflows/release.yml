@@ -7,10 +7,10 @@ on:
 permissions: {}
 jobs:
   release:
-    uses: nodenv/.github/.github/workflows/release.yml@v6
+    uses: nodenv/.github/.github/workflows/release.yml@v7
     permissions: { contents: write, id-token: write }
     with: { homebrew: false, npm: false }
 
   sync:
-    uses: nodenv/.github/.github/workflows/sync-major-version.yml@v6
+    uses: nodenv/.github/.github/workflows/sync-major-version.yml@v7
     permissions: { contents: write }
