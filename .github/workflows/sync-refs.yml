@@ -29,6 +29,7 @@ jobs:
         with:
           fetch-depth: 0 # fetch full history to replay in subtree
           token: ${{secrets.BOT_TOKEN}} # applies to subsequent git operations
+          persist-credentials: true # need creds for subsequent git operations
       - run: |
           split_head=$(git subtree split --prefix ${{matrix.action}})
           git push "$remote" "${split_head:?}:${{github.ref}}"
