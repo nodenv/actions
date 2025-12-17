@@ -29,9 +29,10 @@ jobs:
         with:
           fetch-depth: 0 # fetch full history to replay in subtree
           token: ${{secrets.BOT_TOKEN}} # applies to subsequent git operations
+          persist-credentials: true # need creds for subsequent git operations
       - run: |
           split_head=$(git subtree split --prefix ${{matrix.action}})
-          git push "$remote" "${split_head:?}:${{github.ref}}"
+          git push "$remote" "${split_head:?}:${GITHUB_REF}"
         env:
           remote: https://github.com/${{github.repository}}-${{matrix.action}}
 
@@ -43,6 +44,7 @@ jobs:
       - uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
         with: { egress-policy: audit }
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with: { persist-credentials: false }
       - uses: ossf/scorecard-action@4eaacf0543bb3f2c246792bd56e8cdeffafb205a # v2.4.3
         with:
           results_file: ossf-scorecard-results.sarif
