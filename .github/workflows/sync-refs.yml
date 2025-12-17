@@ -32,7 +32,7 @@ jobs:
           persist-credentials: true # need creds for subsequent git operations
       - run: |
           split_head=$(git subtree split --prefix ${{matrix.action}})
-          git push "$remote" "${split_head:?}:${{github.ref}}"
+          git push "$remote" "${split_head:?}:${GITHUB_REF}"
         env:
           remote: https://github.com/${{github.repository}}-${{matrix.action}}
 
