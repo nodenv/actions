@@ -9,7 +9,7 @@ on:
 permissions: {}
 jobs:
   sync:
-    uses: nodenv/.github/.github/workflows/sync-default-branch.yml@v6
+    uses: nodenv/.github/.github/workflows/sync-default-branch.yml@v7
     permissions: { contents: write }
 
   subtrees:
