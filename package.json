@@ -31,7 +31,7 @@
     "@actions/tool-cache": "^2"
   },
   "devDependencies": {
-    "@actions/io": "2",
+    "@actions/io": "3",
     "@vercel/ncc": "^0.38.4",
     "eslint": "9",
     "jest": "30",
