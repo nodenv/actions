@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@actions/io": "2",
-    "@vercel/ncc": "^0.38.4",
+    "@vercel/ncc": "^0.44.0",
     "eslint": "9",
     "jest": "30",
     "neostandard": "^0.12.2"
