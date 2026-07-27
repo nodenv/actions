@@ -27,7 +27,7 @@
     "postversion": "git push --follow-tags"
   },
   "dependencies": {
-    "@actions/core": "^1",
+    "@actions/core": "^3",
     "@actions/tool-cache": "^3"
   },
   "devDependencies": {
