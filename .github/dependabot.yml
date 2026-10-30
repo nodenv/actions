@@ -10,6 +10,7 @@ updates:
     directory: "/"
     schedule: { interval: weekly }
     cooldown: { default-days: 15 }
+    groups: { github-actions: { patterns: ["*"] } }
 
   - package-ecosystem: npm
     directory: "/node-version"
@@ -19,6 +20,7 @@ updates:
     directory: "/node-version"
     schedule: { interval: weekly }
     cooldown: { default-days: 15 }
+    groups: { github-actions: { patterns: ["*"] } }
 
   - package-ecosystem: npm
     directory: "/setup-nodenv"
@@ -28,3 +30,4 @@ updates:
     directory: "/setup-nodenv"
     schedule: { interval: weekly }
     cooldown: { default-days: 15 }
+    groups: { github-actions: { patterns: ["*"] } }
